@@ -44,8 +44,8 @@ for action in file_json['actions']:
 
             #  The code is saved in the json in base64 format so it needs to be decoded
             code_base64 = sub_action['byteCode']
-            code_text = base64.b64decode(code_base64).decode(
-                'utf-8').replace("\r", "")
+            code_text = base64.b64decode(
+                code_base64).decode('ansi').replace("\r", "")
 
             # Saving all the code bits to files names by the action and number
             with open(os.path.join(backup_files_path, action['name']+" "+str(count)+".cs"), 'w') as cs_file:
